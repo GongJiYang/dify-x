@@ -832,8 +832,8 @@ services:
     restart: always
     volumes:
       # 仅挂载静态资源和翻译文件，支持快速更新
-      - ../web/public:/app/web/public:ro
-      - ../web/i18n:/app/web/i18n:ro
+      - /root/dockge/compose/dify-x/web/public:/app/web/public:ro
+      - /root/dockge/compose/dify-x/web/i18n:/app/web/i18n:ro
     environment:
       CONSOLE_API_URL: ${CONSOLE_API_URL:-}
       APP_API_URL: ${APP_API_URL:-}
