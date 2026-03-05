@@ -828,8 +828,12 @@ services:
 
   # Frontend web application.
   web:
-    image: langgenius/dify-web:1.13.0
+    image: ghcr.io/gongjiyang/dify-x-web:latest
     restart: always
+    volumes:
+      # 仅挂载静态资源和翻译文件，支持快速更新
+      - ../web/public:/app/web/public:ro
+      - ../web/i18n:/app/web/i18n:ro
     environment:
       CONSOLE_API_URL: ${CONSOLE_API_URL:-}
       APP_API_URL: ${APP_API_URL:-}
